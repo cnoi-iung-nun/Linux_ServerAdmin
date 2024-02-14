@@ -1,0 +1,33 @@
+[[ $- == *i* ]] && source "$HOME/.local/share/blesh/ble.sh" --attach=none
+# .bashrc
+
+# User specific aliases and functions
+
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+export PS1='\[\e[31;1m\][\u@\h\[\e[33;1m\] \w]\$ \[\e[m\]'
+alias tree='env LANG=C tree'
+alias grep='grep --color=auto -i'
+alias df='df -hT'
+alias pps='ps -ef | head -1 ; ps -ef | grep $1'
+alias vi='vim'
+alias c='clear'
+alias h='history'
+alias pps='/bin/ps -ef | head -1 ; ps -ef | grep $1'
+alias chrome='/usr/bin/google-chrome --no-sandbox'
+alias aaa='chmod 700 /root/bin/*.sh'
+alias RS='rsync -avz --delete -e ssh'
+alias LS='rsync -a --delete'
+alias fwcmd='firewall-cmd'
+alias fwtab='firewall-config &'
+alias fwreload='firewall-cmd --reload'
+alias fwlist='firewall-cmd --list-all'
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+export PS1='\[\e[31;1m\][\u@\h\[\e[33;1m\] \w]\$ \[\e[m\]'
+
+[[ ${BLE_VERSION-} ]] && ble-attach
